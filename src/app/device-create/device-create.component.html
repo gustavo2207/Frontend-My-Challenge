@@ -1,0 +1,46 @@
+<div class="container hide" id="create-device">
+  <form>
+    <label for="exampleDataList" class="form-label">Categories Available</label>
+    <div class="input-group">
+      <input
+        class="form-control"
+        list="datalistOptions"
+        id="exampleDataList"
+        placeholder="Type to search your category ..."
+        required
+      />
+      <datalist id="datalistOptions">
+        <option value="Category 1"></option>
+        <option value="Category 2"></option>
+        <option value="Category 3"></option>
+        <option value="Category 4"></option>
+        <option value="Category 5"></option>
+      </datalist>
+    </div>
+    <label for="inputColor" class="form-label mt-2">Color</label>
+    <div class="input-group">
+      <input
+        type="text"
+        id="inputColor"
+        class="form-control"
+        placeholder="Must be 3-16 characters."
+        maxlength="16"
+        pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+        required
+      />
+    </div>
+    <label for="inputColor" class="form-label mt-2">Part Number</label>
+    <div class="input-group">
+      <input
+        type="number"
+        id="inputColor"
+        class="form-control"
+        placeholder="Insert a Part Number"
+        min="0"
+        pattern="/^\d+$/"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-dark mt-2">Submit</button>
+  </form>
+</div>
