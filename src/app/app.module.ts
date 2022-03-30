@@ -15,6 +15,8 @@ import { DeviceReadComponent } from './device-read/device-read.component';
 import { DeviceDeleteComponent } from './device-delete/device-delete.component';
 import { CategoryDeleteComponent } from './category-delete/category-delete.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { CategoryDeleteComponent } from './category-delete/category-delete.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

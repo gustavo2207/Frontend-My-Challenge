@@ -7,17 +7,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Jacob</td>
+      <tr *ngFor="let category of categories">
+        <th scope="row">{{ category.id }}</th>
+        <td>{{ category.name }}</td>
       </tr>
     </tbody>
   </table>

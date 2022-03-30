@@ -10,8 +10,15 @@
         maxlength="128"
         pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
         required
+        #categoryName
       />
     </div>
-    <button type="submit" class="btn btn-dark mt-2">Submit</button>
+    <button
+      type="submit"
+      class="btn btn-dark mt-2"
+      (click)="add(categoryName.value); categoryName.value = ''"
+    >
+      Submit
+    </button>
   </form>
 </div>

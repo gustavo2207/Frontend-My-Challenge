@@ -5,18 +5,23 @@
       <input
         class="form-control"
         list="datalistOptions"
-        id="exampleDataList"
         placeholder="Type to search your category ..."
+        #deleteCategory
         required
       />
       <datalist id="datalistOptions">
-        <option value="Category 1"></option>
-        <option value="Category 2"></option>
-        <option value="Category 3"></option>
-        <option value="Category 4"></option>
-        <option value="Category 5"></option>
+        <option
+          *ngFor="let category of categories"
+          value="{{ category.name }}"
+        ></option>
       </datalist>
     </div>
-    <button type="submit" class="btn btn-dark mt-2">Delete</button>
+    <button
+      type="submit"
+      class="btn btn-dark mt-2"
+      (click)="delete(deleteCategory.value)"
+    >
+      Delete
+    </button>
   </form>
 </div>
