@@ -17,7 +17,7 @@ export class CategoryCreateComponent implements OnInit {
   }
 
   add(name: String): void {
-    name: name.trim()
+    name = name.trim()
 
     if(!name) return
 

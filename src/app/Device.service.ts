@@ -23,28 +23,29 @@ export class DeviceService {
     );
   }
 
-  addDevice(device: Device): Observable<Device> {
+  addDevice(device: Device, name:String): Observable<Device> {
+    console.log(name)
     return this.http
       .post<Device>(
-        `${this.url}/category`,
+        `${this.url}/category/${name}/device`,
         device,
         this.httpOptions
       )
       .pipe(
-        tap((newCategory: Device) =>
-          this.log(`added category part number: ${newCategory.part_number}`)
+        tap((newDevice: Device) =>
+          this.log(`added category part number: ${newDevice.part_number}`)
         ),
-        catchError(this.handleError<Device>('addCategory'))
+        catchError(this.handleError<Device>('addDevice'))
       );
   }
 
-  /* deleteDevice(name: String): Observable<Category> {
-    const urlDelete = `${this.categoryUrl}/category/${name}`;
-    return this.http.delete<Category>(urlDelete, this.httpOptions).pipe(
-      tap((_) => this.log(`deleted cateory ${name}`)),
-      catchError(this.handleError<Category>('deletedCategory'))
+  deleteDevice(partNumber: String): Observable<Device> {
+    const urlDelete = `${this.url}/device/${partNumber}`;
+    return this.http.delete<Device>(urlDelete, this.httpOptions).pipe(
+      tap((_) => this.log(`deleted device part number = ${partNumber}`)),
+      catchError(this.handleError<Device>('deleteDevice'))
     );
-  } */
+  }
 
   /**
    * Handle Http operation that failed.
