@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Category } from '../Category';
 import { CategoryService } from '../category.service';
 
@@ -9,12 +9,20 @@ import { CategoryService } from '../category.service';
 })
 export class CategoryReadComponent implements OnInit {
 
+  @Input() update!: Boolean
+
   categories: Category[] = []
 
   constructor(private categoryServices: CategoryService) { }
 
   ngOnInit(): void {
     this.getCategories();
+  }
+
+  ngDoCheck(){
+    if(this.update){
+      this.getCategories();
+    }
   }
 
   getCategories(): void {

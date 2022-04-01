@@ -43,7 +43,12 @@
     <button
       type="submit"
       class="btn btn-dark mt-2"
-      (click)="add(category.value, partNumber.value, color.value)"
+      (click)="
+        add(category.value, partNumber.value, color.value);
+        category.value = '';
+        partNumber.value = '';
+        color.value = ''
+      "
     >
       Submit
     </button>

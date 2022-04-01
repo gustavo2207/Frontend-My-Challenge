@@ -14,6 +14,7 @@ export class DeviceManagementComponent implements OnInit {
   showCreate:Boolean = false
   showRead:Boolean = false
   showDelete:Boolean = false
+  updateRead: Boolean = false
 
   constructor() {
   }
@@ -34,6 +35,11 @@ export class DeviceManagementComponent implements OnInit {
       this.showRead = false
       this.showDelete = false
     }
+  }
+
+  updateReadStatus(){
+    this.updateRead = true
+    this.updateRead = false
   }
 
   readOption(){

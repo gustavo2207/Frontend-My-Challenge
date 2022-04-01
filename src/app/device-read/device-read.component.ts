@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Device } from '../Device';
 import { DeviceService } from '../Device.service';
 
@@ -9,12 +9,20 @@ import { DeviceService } from '../Device.service';
 })
 export class DeviceReadComponent implements OnInit {
 
+  @Input() update!: Boolean
+
   devices: Device[] = []
   
   constructor(private deviceService: DeviceService) { }
 
   ngOnInit(): void {
     this.getDevices();
+  }
+
+  ngDoCheck(){
+    if(this.update){
+      this.getDevices();
+    }
   }
 
   getDevices(): void {

@@ -13,6 +13,7 @@ export class CategoryManagementComponent implements OnInit {
   showCreate:Boolean = false
   showRead:Boolean = false
   showDelete:Boolean = false
+  updateCategories: Boolean = false
 
   constructor() { }
 
@@ -24,6 +25,11 @@ export class CategoryManagementComponent implements OnInit {
       this.showCreate = true
       this.showDefault = false
     }
+  }
+
+  updateReadStatus(){
+    this.updateCategories = true
+    this.updateCategories = false
   }
 
   createOption(){

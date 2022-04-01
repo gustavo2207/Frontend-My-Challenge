@@ -4,7 +4,13 @@
     (read)="readOption()"
     (delete)="deleteOption()"
   ></app-button-crud>
-  <app-device-create *ngIf="showCreate"></app-device-create>
-  <app-device-read *ngIf="showRead"></app-device-read>
-  <app-device-delete *ngIf="showDelete"></app-device-delete>
+  <app-device-create
+    *ngIf="showCreate"
+    (createdUpdate)="updateReadStatus()"
+  ></app-device-create>
+  <app-device-read *ngIf="showRead" [update]="updateRead"></app-device-read>
+  <app-device-delete
+    *ngIf="showDelete"
+    (deleteUpdate)="updateReadStatus()"
+  ></app-device-delete>
 </div>

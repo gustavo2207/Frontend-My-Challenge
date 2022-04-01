@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Category } from '../Category';
 import { CategoryService } from '../category.service';
 
@@ -9,6 +9,9 @@ import { CategoryService } from '../category.service';
 })
 export class CategoryDeleteComponent implements OnInit {
 
+  @Output() deleteUpdate = new EventEmitter()
+  @Input() update!:Boolean
+
   categories: Category[] = []
 
   constructor(private categoryService: CategoryService) { }
@@ -17,12 +20,18 @@ export class CategoryDeleteComponent implements OnInit {
     this.getCategories();
   }
 
+  ngDoCheck(){
+    if(this.update) this.getCategories();
+  }
+
   getCategories(): void {
     this.categoryService.getCategories()
     .subscribe(categories => this.categories = categories)
   }
 
   delete(name: String): void{
+    name=name.trim()
+    this.deleteUpdate.emit()
     this.categoryService.deleteCategory(name).subscribe()
   }
 }

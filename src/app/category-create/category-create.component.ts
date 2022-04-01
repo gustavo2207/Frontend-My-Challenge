@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Category } from '../Category';
 import { CategoryService } from '../category.service';
 
@@ -8,6 +8,8 @@ import { CategoryService } from '../category.service';
   styleUrls: ['./category-create.component.css']
 })
 export class CategoryCreateComponent implements OnInit {
+
+  @Output() createUpdate = new EventEmitter()
 
   categories: Category[] = []
 
@@ -20,6 +22,8 @@ export class CategoryCreateComponent implements OnInit {
     name = name.trim()
 
     if(!name) return
+
+    this.createUpdate.emit()
 
     this.categoryService.addCategory({ name } as Category)
     .subscribe(category => {

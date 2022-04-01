@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Category } from '../Category';
 import { CategoryService } from '../category.service';
 import { Device } from '../Device';
@@ -10,6 +10,9 @@ import { DeviceService } from '../Device.service';
   styleUrls: ['./device-create.component.css'],
 })
 export class DeviceCreateComponent implements OnInit {
+
+  @Output() createdUpdate = new EventEmitter()
+
   devices: Device[] = [];
   categories: Category[] = []
 
@@ -28,6 +31,8 @@ export class DeviceCreateComponent implements OnInit {
     partNumber = parseInt(partNumber);
 
     if (!category && !color && !partNumber) return;
+    
+    this.createdUpdate.emit()
 
     this.deviceService
       .addDevice({ color: color, part_number: partNumber } as Device, category)
