@@ -6,7 +6,7 @@ import { Device } from './Device';
 
 @Injectable({ providedIn: 'root' })
 export class DeviceService {
-  private url = 'http://localhost:3333';
+  private url = 'http://52.67.132.193:3333';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,13 +18,13 @@ export class DeviceService {
 
   getDevices(): Observable<Device[]> {
     return this.http.get<Device[]>(`${this.url}/category/device`).pipe(
-      tap((_)=> this.log('fetched Devices')),
+      tap((_) => this.log('fetched Devices')),
       catchError(this.handleError<Device[]>('getDevices', []))
     );
   }
 
-  addDevice(device: Device, name:String): Observable<Device> {
-    console.log(name)
+  addDevice(device: Device, name: String): Observable<Device> {
+    console.log(name);
     return this.http
       .post<Device>(
         `${this.url}/category/${name}/device`,
@@ -48,21 +48,14 @@ export class DeviceService {
   }
 
   /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   *
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
+   * @param operation
+   * @param result
    */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+      console.error(error);
 
-      // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }
