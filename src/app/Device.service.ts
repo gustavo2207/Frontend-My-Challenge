@@ -24,7 +24,6 @@ export class DeviceService {
   }
 
   addDevice(device: Device, name: String): Observable<Device> {
-    console.log(name);
     return this.http
       .post<Device>(
         `${this.url}/category/${name}/device`,
