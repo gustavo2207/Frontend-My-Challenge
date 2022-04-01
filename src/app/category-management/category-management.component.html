@@ -1,6 +1,10 @@
-<div class="hide" id="btn-category">
-  <app-button-crud></app-button-crud>
-  <app-category-create></app-category-create>
-  <app-category-read></app-category-read>
-  <app-category-delete></app-category-delete>
+<div id="btn-category">
+  <app-button-crud
+    (create)="createOption()"
+    (read)="readOption()"
+    (delete)="deleteOption()"
+  ></app-button-crud>
+  <app-category-create *ngIf="showCreate"></app-category-create>
+  <app-category-read *ngIf="showRead"></app-category-read>
+  <app-category-delete *ngIf="showDelete"></app-category-delete>
 </div>

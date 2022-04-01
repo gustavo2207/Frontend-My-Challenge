@@ -1,7 +1,22 @@
-<app-menu></app-menu>
-<app-cards></app-cards>
-<app-category-management></app-category-management>
-<app-device-management></app-device-management>
+<app-menu
+  (newCategoryEventMenu)="handleCategory()"
+  (newDeviceEventMenu)="handleDevice()"
+></app-menu>
+<app-cards
+  (newCategoryEvent)="handleCategory()"
+  (newDeviceEvent)="handleDevice()"
+></app-cards>
+<app-category-management
+  *ngIf="isCategory"
+  [isActive]="isCategory"
+  [showDefault]="isCategory"
+></app-category-management>
+<app-device-management
+  *ngIf="isDevice"
+  [isActive]="isDevice"
+  [showDefault]="isDevice"
+></app-device-management>
+
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->

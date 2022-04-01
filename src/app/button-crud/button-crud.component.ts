@@ -1,57 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button-crud',
   templateUrl: './button-crud.component.html',
-  styleUrls: ['./button-crud.component.css']
+  styleUrls: ['./button-crud.component.css'],
 })
 export class ButtonCrudComponent implements OnInit {
+  @Output() create = new EventEmitter();
+  @Output() read = new EventEmitter();
+  @Output() delete = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  btnCreate() {
+    this.create.emit();
+  }
+  btnRead() {
+    this.read.emit();
   }
 
-  btnCreate(){
-    const isDevice = document.querySelector("#btn-device")?.classList.contains("device");
-    const isCategory = document.querySelector("#btn-category")?.classList.contains("category");
-    if(isDevice) {
-      document.querySelector("#create-device")?.classList.remove("hide")
-      document.querySelector("#read-device")?.classList.add("hide")
-      document.querySelector("#delete-device")?.classList.add("hide")
-    } else if(isCategory){
-      document.querySelector("#create-category")?.classList.remove("hide")
-      document.querySelector("#read-category")?.classList.add("hide")
-      document.querySelector("#delete-category")?.classList.add("hide")
-    }
+  btnDelete() {
+    this.delete.emit();
   }
-  btnRead(){
-    const isDevice = document.querySelector("#btn-device")?.classList.contains("device");
-    const isCategory = document.querySelector("#btn-category")?.classList.contains("category");
-    if(isDevice){
-      document.querySelector("#create-device")?.classList.add("hide")
-      document.querySelector("#read-device")?.classList.remove("hide")
-      document.querySelector("#delete-device")?.classList.add("hide")
-    } else if(isCategory){
-      document.querySelector("#create-category")?.classList.add("hide")
-      document.querySelector("#read-category")?.classList.remove("hide")
-      document.querySelector("#delete-category")?.classList.add("hide")
-    }
-  }
-
-  btnDelete(){
-    const isDevice = document.querySelector("#btn-device")?.classList.contains("device");
-    const isCategory = document.querySelector("#btn-category")?.classList.contains("category");
-    if(isDevice) {
-      document.querySelector("#create-device")?.classList.add("hide")
-      document.querySelector("#read-device")?.classList.add("hide")
-      document.querySelector("#delete-device")?.classList.remove("hide")
-    } else if (isCategory) {
-      document.querySelector("#create-category")?.classList.add("hide")
-      document.querySelector("#read-category")?.classList.add("hide")
-      document.querySelector("#delete-category")?.classList.remove("hide")
-    }
-  }
-  
-
 }
