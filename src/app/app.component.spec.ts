@@ -1,17 +1,29 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CategoryService } from './category.service';
+import { DeviceService } from './Device.service';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let categoryService: CategoryService;
+  let deviceService: DeviceService
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ],
       declarations: [
         AppComponent
       ],
+      providers: [
+        categoryService,
+        deviceService
+      ]
     }).compileComponents();
+    categoryService = TestBed.inject(CategoryService)
+    deviceService = TestBed.inject(DeviceService)
   });
 
   it('should create the app', () => {
