@@ -10,7 +10,7 @@ export class CategoryService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     }),
   };
 
@@ -37,7 +37,7 @@ export class CategoryService {
   deleteCategory(name: String): Observable<Category> {
     const urlDelete = `${this.url}/category/${name}`;
     return this.http.delete<Category>(urlDelete, this.httpOptions).pipe(
-      tap((_) => this.log(`deleted cateory ${name}`)),
+      tap((_) => this.log(`deleted category ${name}`)),
       catchError(this.handleError<Category>('deletedCategory'))
     );
   }

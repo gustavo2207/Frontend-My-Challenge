@@ -12,8 +12,6 @@ import { DeviceCreateComponent } from './device-create/device-create.component';
 import { ButtonCrudComponent } from './button-crud/button-crud.component';
 import { CategoryReadComponent } from './category-read/category-read.component';
 import { DeviceReadComponent } from './device-read/device-read.component';
-import { DeviceDeleteComponent } from './device-delete/device-delete.component';
-import { CategoryDeleteComponent } from './category-delete/category-delete.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -29,8 +27,6 @@ import { HttpClientModule } from '@angular/common/http';
     ButtonCrudComponent,
     CategoryReadComponent,
     DeviceReadComponent,
-    DeviceDeleteComponent,
-    CategoryDeleteComponent
   ],
   imports: [
     BrowserModule,

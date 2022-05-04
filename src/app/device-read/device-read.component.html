@@ -5,15 +5,24 @@
         <th scope="col">#</th>
         <th scope="col">Category</th>
         <th scope="col">Color</th>
-        <th scope="col">partNumber</th>
+        <th scope="col" colspan="2">partNumber</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let device of devices">
-        <th scope="row">{{ device.id }}</th>
-        <th>{{ device.category.name }}</th>
-        <th>{{ device.color }}</th>
-        <th>{{ device.part_number }}</th>
+        <td scope="row">{{ device.id }}</td>
+        <td>{{ device.category.name }}</td>
+        <td>{{ device.color }}</td>
+        <td>{{ device.part_number }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-dark"
+            (click)="delete(device.part_number)"
+          >
+            Delete
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -2,7 +2,6 @@
   <app-button-crud
     (create)="createOption()"
     (read)="readOption()"
-    (delete)="deleteOption()"
   ></app-button-crud>
   <app-category-create
     *ngIf="showCreate"
@@ -12,9 +11,4 @@
     *ngIf="showRead"
     [update]="updateCategories"
   ></app-category-read>
-  <app-category-delete
-    *ngIf="showDelete"
-    (deleteUpdate)="updateReadStatus()"
-    [update]="updateCategories"
-  ></app-category-delete>
 </div>

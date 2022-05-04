@@ -9,8 +9,4 @@
     (createdUpdate)="updateReadStatus()"
   ></app-device-create>
   <app-device-read *ngIf="showRead" [update]="updateRead"></app-device-read>
-  <app-device-delete
-    *ngIf="showDelete"
-    (deleteUpdate)="updateReadStatus()"
-  ></app-device-delete>
 </div>

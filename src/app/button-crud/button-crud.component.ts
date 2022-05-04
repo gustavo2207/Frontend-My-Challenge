@@ -20,8 +20,4 @@ export class ButtonCrudComponent implements OnInit {
   btnRead() {
     this.read.emit();
   }
-
-  btnDelete() {
-    this.delete.emit();
-  }
 }

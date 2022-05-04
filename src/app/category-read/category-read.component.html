@@ -3,13 +3,22 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Category</th>
+        <th scope="col" colspan="2">Category</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let category of categories">
         <th scope="row">{{ category.id }}</th>
         <td>{{ category.name }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-dark"
+            (click)="delete(category.name)"
+          >
+            Delete
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
