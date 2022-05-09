@@ -6,11 +6,11 @@ import { Category } from './Category';
 
 @Injectable({ providedIn: 'root' })
 export class CategoryService {
-  private url = 'http://52.67.132.193:3333';
-
+  /* private url = 'http://52.67.132.193:3333'; */
+  private url = 'http://localhost:3333';
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     }),
   };
 

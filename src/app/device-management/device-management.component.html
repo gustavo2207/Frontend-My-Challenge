@@ -1,12 +1,31 @@
-<div id="btn-device">
+<div class="position-relative" id="btn-device">
   <app-button-crud
     (create)="createOption()"
     (read)="readOption()"
-    (delete)="deleteOption()"
   ></app-button-crud>
-  <app-device-create
-    *ngIf="showCreate"
-    (createdUpdate)="updateReadStatus()"
-  ></app-device-create>
-  <app-device-read *ngIf="showRead" [update]="updateRead"></app-device-read>
+  <button
+    type="button"
+    class="btn btn-dark position-absolute top-10 end-20"
+    (click)="createNewCategory($event)"
+  >
+    Create new category
+  </button>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <app-device-create
+          [@openClosed]
+          *ngIf="showCreate"
+          (createdUpdate)="updateReadStatus()"
+        ></app-device-create>
+      </div>
+      <div class="col-12">
+        <app-device-read
+          [@openClosed]
+          *ngIf="showRead"
+          [update]="updateRead"
+        ></app-device-read>
+      </div>
+    </div>
+  </div>
 </div>

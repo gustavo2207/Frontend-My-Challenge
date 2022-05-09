@@ -1,24 +1,27 @@
-<div class="container" id="create-category">
-  <form>
-    <label for="inputName" class="form-label mt-2">Category name</label>
-    <div class="input-group">
-      <input
-        type="text"
-        id="inputColor"
-        class="form-control"
-        placeholder="Insert a category name"
-        maxlength="128"
-        pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
-        required
-        #categoryName
-      />
-    </div>
-    <button
-      type="submit"
-      class="btn btn-dark mt-2"
-      (click)="add(categoryName.value); categoryName.value = ''"
-    >
-      Submit
-    </button>
-  </form>
-</div>
+<form>
+  <label for="inputName" class="form-label mt-2">Category name</label>
+  <div class="input-group">
+    <input
+      type="text"
+      id="categoryNameInput"
+      class="form-control"
+      placeholder="Insert a category name"
+      maxlength="128"
+      pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+      required
+      #categoryName
+    />
+  </div>
+  <button
+    type="submit"
+    class="btn btn-dark mt-2"
+    (click)="
+      categoryName.value != '' && add(categoryName.value);
+      categoryName.value != '' && $event.preventDefault();
+      categoryName.value != '' && (categoryName.value = '');
+      (categoryName.value == '' && null)
+    "
+  >
+    Submit
+  </button>
+</form>

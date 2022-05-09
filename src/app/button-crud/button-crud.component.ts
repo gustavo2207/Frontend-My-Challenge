@@ -8,7 +8,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ButtonCrudComponent implements OnInit {
   @Output() create = new EventEmitter();
   @Output() read = new EventEmitter();
-  @Output() delete = new EventEmitter();
 
   constructor() {}
 

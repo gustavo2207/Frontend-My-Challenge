@@ -73,7 +73,8 @@
               "browserTarget": "my-challenge:build:production"
             },
             "development": {
-              "browserTarget": "my-challenge:build:development"
+              "browserTarget": "my-challenge:build:development",
+              "proxyConfig": "./proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

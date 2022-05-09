@@ -1,56 +1,54 @@
-<div class="container" id="create-device">
-  <form>
-    <label for="exampleDataList" class="form-label">Categories Available</label>
-    <div class="input-group">
-      <input
-        class="form-control"
-        list="datalistOptions"
-        placeholder="Type to search your category ..."
-        required
-        #category
-      />
-      <datalist id="datalistOptions">
-        <option
-          *ngFor="let category of categories"
-          value="{{ category.name }}"
-        ></option>
-      </datalist>
-    </div>
-    <label for="inputColor" class="form-label mt-2">Color</label>
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Must be 3-16 characters."
-        maxlength="16"
-        pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
-        required
-        #color
-      />
-    </div>
-    <label for="inputColor" class="form-label mt-2">Part Number</label>
-    <div class="input-group">
-      <input
-        type="number"
-        class="form-control"
-        placeholder="Insert a Part Number"
-        min="0"
-        pattern="/^\d+$/"
-        required
-        #partNumber
-      />
-    </div>
-    <button
-      type="submit"
-      class="btn btn-dark mt-2"
-      (click)="
-        add(category.value, partNumber.value, color.value);
-        category.value = '';
-        partNumber.value = '';
-        color.value = ''
-      "
-    >
-      Submit
-    </button>
-  </form>
-</div>
+<form>
+  <label for="exampleDataList" class="form-label">Categories Available</label>
+  <div class="input-group">
+    <input
+      class="form-control"
+      list="datalistOptions"
+      placeholder="Type to search your category ..."
+      required
+      #category
+    />
+    <datalist id="datalistOptions">
+      <option
+        *ngFor="let category of categories"
+        value="{{ category.name }}"
+      ></option>
+    </datalist>
+  </div>
+  <label for="inputColor" class="form-label mt-2">Color</label>
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Must be 3-16 characters."
+      maxlength="16"
+      pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+      required
+      #color
+    />
+  </div>
+  <label for="inputColor" class="form-label mt-2">Part Number</label>
+  <div class="input-group">
+    <input
+      type="number"
+      class="form-control"
+      placeholder="Insert a Part Number"
+      min="0"
+      pattern="/^\d+$/"
+      required
+      #partNumber
+    />
+  </div>
+  <button
+    type="submit"
+    class="btn btn-dark mt-2"
+    (click)="
+      add(category.value, partNumber.value, color.value);
+      category.value = '';
+      partNumber.value = '';
+      color.value = ''
+    "
+  >
+    Submit
+  </button>
+</form>

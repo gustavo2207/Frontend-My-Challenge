@@ -10,11 +10,13 @@
   *ngIf="isCategory"
   [isActive]="isCategory"
   [showDefault]="isCategory"
+  [newCategory]="isNewCategory"
 ></app-category-management>
 <app-device-management
   *ngIf="isDevice"
   [isActive]="isDevice"
   [showDefault]="isDevice"
+  (newCategoryEvent)="handleCategory(true)"
 ></app-device-management>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

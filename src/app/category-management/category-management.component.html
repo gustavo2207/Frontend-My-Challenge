@@ -1,14 +1,25 @@
+<
 <div id="btn-category">
   <app-button-crud
     (create)="createOption()"
     (read)="readOption()"
   ></app-button-crud>
-  <app-category-create
-    *ngIf="showCreate"
-    (createUpdate)="updateReadStatus()"
-  ></app-category-create>
-  <app-category-read
-    *ngIf="showRead"
-    [update]="updateCategories"
-  ></app-category-read>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <app-category-create
+          [@openClosed]
+          *ngIf="showCreate"
+          (createUpdate)="updateReadStatus()"
+        ></app-category-create>
+      </div>
+      <div class="col-12">
+        <app-category-read
+          [@openClosed]
+          *ngIf="showRead"
+          [update]="updateCategories"
+        ></app-category-read>
+      </div>
+    </div>
+  </div>
 </div>

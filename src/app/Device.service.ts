@@ -6,7 +6,8 @@ import { Device } from './Device';
 
 @Injectable({ providedIn: 'root' })
 export class DeviceService {
-  private url = 'http://52.67.132.193:3333';
+  /* private url = 'http://52.67.132.193:3333'; */
+  private url = 'http://localhost:3333';
 
   httpOptions = {
     headers: new HttpHeaders({
