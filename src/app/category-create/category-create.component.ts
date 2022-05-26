@@ -11,8 +11,8 @@ export class CategoryCreateComponent implements OnInit {
   @Output() createUpdate = new EventEmitter();
 
   categories: Category[] = [];
-  
-  categoryName:string = '';
+
+  categoryName: string = '';
 
   constructor(private categoryService: CategoryService) {}
 
@@ -27,14 +27,13 @@ export class CategoryCreateComponent implements OnInit {
 
     const name = this.categoryName;
 
-    this.categoryService
-      .addCategory({ name })
-      .subscribe((category) => {
-        this.categories.push(category);
-      });
-    this.clean()
+    this.categoryService.addCategory({ name }).subscribe({
+      next: (category) => this.categories.push(category),
+      error: (error) => console.log(error),
+      complete: () => this.clear()
+    });
   }
-  clean():void {
-    this.categoryName = ""
+  clear(): void {
+    this.categoryName = '';
   }
 }

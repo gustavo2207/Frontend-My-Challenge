@@ -15,8 +15,8 @@ export class DeviceCreateComponent implements OnInit {
   devices: Device[] = [];
   categories: Category[] = [];
   deviceCategory: string = '';
-  partNumber:string = "";
-  color:string = ""
+  partNumber: number = 0;
+  color: string = '';
 
   constructor(
     private deviceService: DeviceService,
@@ -30,27 +30,27 @@ export class DeviceCreateComponent implements OnInit {
   add(): void {
     this.deviceCategory = this.deviceCategory.trim();
     this.color = this.color.trim();
-    const deviceNumber:number = parseInt(this.partNumber);
 
-    if (!this.deviceCategory && !this.color && !deviceNumber) return;
+    if (!this.deviceCategory && !this.color && !this.partNumber) return;
 
     this.createdUpdate.emit();
 
     this.deviceService
       .addDevice(
-        { color: this.color, part_number: deviceNumber } as Device,
+        { color: this.color, part_number: this.partNumber } as Device,
         this.deviceCategory
       )
-      .subscribe((device) => {
-        this.devices.push(device);
+      .subscribe({
+        next: (device) => this.devices.push(device),
+        error: (err) => console.error(err),
+        complete: () => this.clear()
       });
-      this.clear()
   }
 
-  clear(){
-    this.deviceCategory = ""
-    this.partNumber = ""
-    this.color = ""
+  clear() {
+    this.deviceCategory = '';
+    this.partNumber = 0;
+    this.color = '';
   }
 
   getCategories(): void {

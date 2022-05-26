@@ -7,7 +7,7 @@
       <th scope="col" colspan="2">partNumber</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="devices.length > 0; else listaVazia">
     <tr *ngFor="let device of devices">
       <td scope="row">{{ device.id }}</td>
       <td>{{ device.category?.name }}</td>
@@ -25,3 +25,7 @@
     </tr>
   </tbody>
 </table>
+
+<ng-template #listaVazia>
+  <p>No device registered</p>
+</ng-template>
