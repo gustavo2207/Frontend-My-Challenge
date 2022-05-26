@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-management',
@@ -32,38 +33,7 @@ export class CategoryManagementComponent implements OnInit {
   updateCategories: Boolean = false;
   isOpen!: Boolean;
 
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {}
-
-  ngDoCheck() {
-    if (this.showDefault) {
-      this.showRead = true;
-      this.showDefault = false;
-    }
-    if (this.newCategory) {
-      this.showCreate = true;
-      this.newCategory = false;
-      this.showRead = false;
-    }
-  }
-
-  updateReadStatus() {
-    this.updateCategories = true;
-    this.updateCategories = false;
-  }
-
-  createOption() {
-    if (this.isActive) {
-      this.showCreate = true;
-      this.showRead = false;
-    }
-  }
-
-  readOption() {
-    if (this.isActive) {
-      this.showCreate = false;
-      this.showRead = true;
-    }
-  }
 }

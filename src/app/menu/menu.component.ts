@@ -4,26 +4,10 @@ import { CardsComponent } from '../cards/cards.component';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
+  constructor() {}
 
-  @Output() newDeviceEventMenu = new EventEmitter();
-  @Output() newCategoryEventMenu = new EventEmitter();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  isDeviceManage(event: any){
-    event.preventDefault()
-    this.newDeviceEventMenu.emit();
-  }
-
-  isCategoryManage(event: any){
-    event.preventDefault()
-    this.newCategoryEventMenu.emit();
-  }
-
+  ngOnInit(): void {}
 }

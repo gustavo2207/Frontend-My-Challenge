@@ -1,24 +1,7 @@
-<app-menu
-  (newCategoryEventMenu)="handleCategory()"
-  (newDeviceEventMenu)="handleDevice()"
-></app-menu>
-<app-cards
-  (newCategoryEvent)="handleCategory()"
-  (newDeviceEvent)="handleDevice()"
-></app-cards>
-<app-category-management
-  *ngIf="isCategory"
-  [isActive]="isCategory"
-  [showDefault]="isCategory"
-  [newCategory]="isNewCategory"
-></app-category-management>
-<app-device-management
-  *ngIf="isDevice"
-  [isActive]="isDevice"
-  [showDefault]="isDevice"
-  (newCategoryEvent)="handleCategory(true)"
-></app-device-management>
-
+<header>
+  <app-menu></app-menu>
+  <app-cards></app-cards>
+</header>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
@@ -26,5 +9,6 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<router-outlet></router-outlet>
+<main>
+  <router-outlet></router-outlet>
+</main>
