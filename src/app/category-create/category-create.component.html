@@ -1,26 +1,21 @@
-<form>
-  <label for="inputName" class="form-label mt-2">Category name</label>
+<form (submit)="add()">
+  <label for="categoryName" class="form-label mt-2">Category name</label>
   <div class="input-group">
     <input
       type="text"
-      id="categoryNameInput"
+      id="categoryName"
       class="form-control"
+      name="categoryName"
       placeholder="Insert a category name"
       maxlength="128"
       pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
       required
-      #categoryName
+      [(ngModel)] = "categoryName"
     />
   </div>
   <button
     type="submit"
     class="btn btn-dark mt-2"
-    (click)="
-      categoryName.value != '' && add(categoryName.value);
-      categoryName.value != '' && $event.preventDefault();
-      categoryName.value != '' && (categoryName.value = '');
-      (categoryName.value == '' && null)
-    "
   >
     Submit
   </button>

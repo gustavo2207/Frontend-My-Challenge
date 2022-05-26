@@ -15,6 +15,7 @@ import { CategoryReadComponent } from './category-read/category-read.component';
 import { DeviceReadComponent } from './device-read/device-read.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

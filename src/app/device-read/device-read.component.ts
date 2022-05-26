@@ -30,7 +30,7 @@ export class DeviceReadComponent implements OnInit {
       .subscribe((devices) => (this.devices = devices));
   }
 
-  delete(partNumber: String): void {
+  delete(partNumber: string): void {
     partNumber = `${partNumber}`.trim();
     this.deviceService.deleteDevice(partNumber).subscribe();
     setTimeout(() => {

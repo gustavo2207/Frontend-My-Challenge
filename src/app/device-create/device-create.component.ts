@@ -10,11 +10,13 @@ import { DeviceService } from '../Device.service';
   styleUrls: ['./device-create.component.css'],
 })
 export class DeviceCreateComponent implements OnInit {
-
-  @Output() createdUpdate = new EventEmitter()
+  @Output() createdUpdate = new EventEmitter();
 
   devices: Device[] = [];
-  categories: Category[] = []
+  categories: Category[] = [];
+  deviceCategory: string = '';
+  partNumber:string = "";
+  color:string = ""
 
   constructor(
     private deviceService: DeviceService,
@@ -25,20 +27,30 @@ export class DeviceCreateComponent implements OnInit {
     this.getCategories();
   }
 
-  add(category: String, partNumber: any, color: String): void {
-    category = category.trim();
-    color = color.trim();
-    partNumber = parseInt(partNumber);
+  add(): void {
+    this.deviceCategory = this.deviceCategory.trim();
+    this.color = this.color.trim();
+    const deviceNumber:number = parseInt(this.partNumber);
 
-    if (!category && !color && !partNumber) return;
-    
-    this.createdUpdate.emit()
+    if (!this.deviceCategory && !this.color && !deviceNumber) return;
+
+    this.createdUpdate.emit();
 
     this.deviceService
-      .addDevice({ color: color, part_number: partNumber } as Device, category)
+      .addDevice(
+        { color: this.color, part_number: deviceNumber } as Device,
+        this.deviceCategory
+      )
       .subscribe((device) => {
         this.devices.push(device);
       });
+      this.clear()
+  }
+
+  clear(){
+    this.deviceCategory = ""
+    this.partNumber = ""
+    this.color = ""
   }
 
   getCategories(): void {

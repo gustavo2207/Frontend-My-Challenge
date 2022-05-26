@@ -1,8 +1,8 @@
 import { Category } from "./Category"
 
 export interface Device {
-    id: Number
+    id?: Number
     color: String,
-    part_number: String,
-    category: Category
+    part_number: number,
+    category?: Category
 }

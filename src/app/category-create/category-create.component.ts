@@ -11,23 +11,30 @@ export class CategoryCreateComponent implements OnInit {
   @Output() createUpdate = new EventEmitter();
 
   categories: Category[] = [];
+  
+  categoryName:string = '';
 
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {}
 
-  add(name: String): void {
-    console.log(name);
-    name = name.trim();
+  add(): void {
+    this.categoryName = this.categoryName.trim();
 
-    if (!name) return;
+    if (!this.categoryName) return;
 
     this.createUpdate.emit();
 
+    const name = this.categoryName;
+
     this.categoryService
-      .addCategory({ name } as Category)
+      .addCategory({ name })
       .subscribe((category) => {
         this.categories.push(category);
       });
+    this.clean()
+  }
+  clean():void {
+    this.categoryName = ""
   }
 }

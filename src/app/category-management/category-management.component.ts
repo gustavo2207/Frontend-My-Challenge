@@ -28,7 +28,7 @@ export class CategoryManagementComponent implements OnInit {
   @Input() newCategory!: Boolean;
 
   showCreate: Boolean = false;
-  showRead: Boolean = false;
+  showRead: Boolean = true;
   updateCategories: Boolean = false;
   isOpen!: Boolean;
 
